@@ -1,0 +1,5 @@
+src/routeTree.gen.ts
+pnpm-lock.yaml
+.netlify/
+dist/
+node_modules/

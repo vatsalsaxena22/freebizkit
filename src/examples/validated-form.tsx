@@ -20,11 +20,7 @@ const emailSchema = z.object({
 
 type EmailValues = z.infer<typeof emailSchema>
 
-export function ValidatedForm({
-  onSubmit,
-}: {
-  onSubmit: (values: EmailValues) => Promise<void>
-}) {
+export function ValidatedForm({ onSubmit }: { onSubmit: (values: EmailValues) => Promise<void> }) {
   const [submitted, setSubmitted] = useState(false)
   const form = useForm<EmailValues>({
     resolver: zodResolver(emailSchema),
@@ -60,16 +56,9 @@ export function ValidatedForm({
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input
-                    type="email"
-                    autoComplete="email"
-                    required
-                    {...field}
-                  />
+                  <Input type="email" autoComplete="email" required {...field} />
                 </FormControl>
-                <FormDescription>
-                  Use the address where we can reach you.
-                </FormDescription>
+                <FormDescription>Use the address where we can reach you.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}

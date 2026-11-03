@@ -5,9 +5,7 @@ import { cn } from '@/lib/utils'
 import { ChevronDownIcon } from 'lucide-react'
 import * as AccordionPrimitive from '@radix-ui/react-accordion'
 
-function Accordion({
-  ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Root>) {
+function Accordion({ ...props }: React.ComponentProps<typeof AccordionPrimitive.Root>) {
   return <AccordionPrimitive.Root data-slot="accordion" {...props} />
 }
 

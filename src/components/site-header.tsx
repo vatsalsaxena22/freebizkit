@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import {
   Sheet,
   SheetContent,
+  SheetClose,
   SheetDescription,
   SheetHeader,
   SheetTitle,
@@ -14,6 +15,8 @@ import {
 const nav = [
   { to: '/tools', label: 'Document tools' },
   { to: '/calculators', label: 'Calculators' },
+  { to: '/templates', label: 'Templates' },
+  { to: '/pricing', label: 'Pricing' },
 ] as const
 
 export function SiteHeader() {
@@ -23,7 +26,7 @@ export function SiteHeader() {
         <Link to="/" aria-label="FreeBizKit home" className="rounded-md">
           <Logo />
         </Link>
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
           {nav.map((item) => (
             <Link
               key={item.to}
@@ -34,7 +37,10 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <Button asChild size="sm" className="ml-3">
+          <Link to="/dashboard" className="ml-3 px-3 text-sm font-medium">
+            My workspace
+          </Link>
+          <Button asChild size="sm" className="ml-1">
             <Link to="/tools/$slug" params={{ slug: 'invoice-generator' }}>
               Create an invoice
             </Link>
@@ -42,7 +48,7 @@ export function SiteHeader() {
         </nav>
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open menu">
+            <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu">
               <Menu />
             </Button>
           </SheetTrigger>
@@ -53,19 +59,24 @@ export function SiteHeader() {
             </SheetHeader>
             <nav className="flex flex-col gap-1 px-4" aria-label="Mobile">
               {nav.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className="rounded-md px-3 py-3 font-medium hover:bg-muted"
-                >
-                  {item.label}
-                </Link>
+                <SheetClose asChild key={item.to}>
+                  <Link to={item.to} className="rounded-md px-3 py-3 font-medium hover:bg-muted">
+                    {item.label}
+                  </Link>
+                </SheetClose>
               ))}
-              <Button asChild className="mt-4">
-                <Link to="/tools/$slug" params={{ slug: 'invoice-generator' }}>
-                  Create an invoice
+              <SheetClose asChild>
+                <Link to="/dashboard" className="rounded-md px-3 py-3 font-medium hover:bg-muted">
+                  My workspace
                 </Link>
-              </Button>
+              </SheetClose>
+              <SheetClose asChild>
+                <Button asChild className="mt-4">
+                  <Link to="/tools/$slug" params={{ slug: 'invoice-generator' }}>
+                    Create an invoice
+                  </Link>
+                </Button>
+              </SheetClose>
             </nav>
           </SheetContent>
         </Sheet>

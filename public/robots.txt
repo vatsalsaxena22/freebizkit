@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /login
+Disallow: /api/
+Disallow: /__forms.html
+Sitemap: https://freebizkit.netlify.app/sitemap.xml

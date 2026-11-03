@@ -1,12 +1,5 @@
 import type { LucideIcon } from 'lucide-react'
-import {
-  BadgePercent,
-  Briefcase,
-  Landmark,
-  Percent,
-  Tags,
-  TrendingUp,
-} from 'lucide-react'
+import { BadgePercent, Briefcase, Landmark, Percent, Tags, TrendingUp } from 'lucide-react'
 import { formatMoney, formatNumber, formatPercent, toNumber } from '@/lib/format'
 import { discount, freelanceRate, gst, markup, profitMargin, roi } from './formulas'
 
@@ -168,7 +161,13 @@ export const calculators: CalculatorDef[] = [
     usesCurrency: true,
     fields: [
       { kind: 'number', key: 'cost', label: 'Cost', unit: 'money', defaultValue: '60' },
-      { kind: 'number', key: 'revenue', label: 'Selling price (revenue)', unit: 'money', defaultValue: '100' },
+      {
+        kind: 'number',
+        key: 'revenue',
+        label: 'Selling price (revenue)',
+        unit: 'money',
+        defaultValue: '100',
+      },
     ],
     compute: (v, c) => {
       const cost = n(v, 'cost')
@@ -323,11 +322,9 @@ export const calculators: CalculatorDef[] = [
       }
     },
     formula: {
-      expression: [
-        'Final = Price × (1 − D1 ÷ 100) × (1 − D2 ÷ 100)',
-        'Saved = Price − Final',
-      ],
-      example: '$200 with 20% then 10% off: 200 × 0.8 × 0.9 = $144. You save $56 — an effective 28%.',
+      expression: ['Final = Price × (1 − D1 ÷ 100) × (1 − D2 ÷ 100)', 'Saved = Price − Final'],
+      example:
+        '$200 with 20% then 10% off: 200 × 0.8 × 0.9 = $144. You save $56 — an effective 28%.',
     },
     howTo: [
       'Enter the original price.',
@@ -361,12 +358,50 @@ export const calculators: CalculatorDef[] = [
       'Start from the income you want to take home, then account for tax, business costs, holidays and the reality that not every working hour is billable. The result is the minimum rate that gets you there.',
     usesCurrency: true,
     fields: [
-      { kind: 'number', key: 'income', label: 'Target take-home income (per year)', unit: 'money', defaultValue: '60000' },
-      { kind: 'number', key: 'expenses', label: 'Business expenses (per year)', unit: 'money', defaultValue: '6000', help: 'Software, equipment, insurance, coworking…' },
-      { kind: 'number', key: 'tax', label: 'Estimated tax rate', unit: 'percent', defaultValue: '25' },
-      { kind: 'number', key: 'hours', label: 'Billable hours per week', unit: 'hours', defaultValue: '25', help: 'Exclude admin, sales and learning time.' },
-      { kind: 'number', key: 'weeks', label: 'Working weeks per year', unit: 'weeks', defaultValue: '46' },
-      { kind: 'number', key: 'buffer', label: 'Profit / safety buffer', unit: 'percent', defaultValue: '10' },
+      {
+        kind: 'number',
+        key: 'income',
+        label: 'Target take-home income (per year)',
+        unit: 'money',
+        defaultValue: '60000',
+      },
+      {
+        kind: 'number',
+        key: 'expenses',
+        label: 'Business expenses (per year)',
+        unit: 'money',
+        defaultValue: '6000',
+        help: 'Software, equipment, insurance, coworking…',
+      },
+      {
+        kind: 'number',
+        key: 'tax',
+        label: 'Estimated tax rate',
+        unit: 'percent',
+        defaultValue: '25',
+      },
+      {
+        kind: 'number',
+        key: 'hours',
+        label: 'Billable hours per week',
+        unit: 'hours',
+        defaultValue: '25',
+        help: 'Exclude admin, sales and learning time.',
+      },
+      {
+        kind: 'number',
+        key: 'weeks',
+        label: 'Working weeks per year',
+        unit: 'weeks',
+        defaultValue: '46',
+      },
+      {
+        kind: 'number',
+        key: 'buffer',
+        label: 'Profit / safety buffer',
+        unit: 'percent',
+        defaultValue: '10',
+      },
     ],
     compute: (v, c) => {
       const vals = {
@@ -430,8 +465,20 @@ export const calculators: CalculatorDef[] = [
       'Compare what you put in with what you got back. Add the time period to see the annualised return, which makes investments of different lengths comparable.',
     usesCurrency: true,
     fields: [
-      { kind: 'number', key: 'invested', label: 'Amount invested', unit: 'money', defaultValue: '1000' },
-      { kind: 'number', key: 'returned', label: 'Amount returned', unit: 'money', defaultValue: '1210' },
+      {
+        kind: 'number',
+        key: 'invested',
+        label: 'Amount invested',
+        unit: 'money',
+        defaultValue: '1000',
+      },
+      {
+        kind: 'number',
+        key: 'returned',
+        label: 'Amount returned',
+        unit: 'money',
+        defaultValue: '1210',
+      },
       { kind: 'number', key: 'years', label: 'Time period', unit: 'years', defaultValue: '2' },
     ],
     compute: (v, c) => {

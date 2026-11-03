@@ -108,7 +108,10 @@ export function CalculatorView({ calc }: { calc: CalculatorDef }) {
                   inputMode="decimal"
                   value={values[field.key]}
                   onChange={(e) => set(field.key, e.target.value)}
-                  className={cn('tabular h-11 text-base', field.unit === 'money' ? 'pl-14' : 'pr-12')}
+                  className={cn(
+                    'tabular h-11 text-base',
+                    field.unit === 'money' ? 'pl-14' : 'pr-12',
+                  )}
                   aria-describedby={field.help ? `${field.key}-help` : undefined}
                 />
                 {field.unit === 'money' ? (
@@ -164,7 +167,10 @@ export function CalculatorView({ calc }: { calc: CalculatorDef }) {
         </Button>
       </form>
 
-      <div className="ledger-bg flex flex-col border-t bg-secondary/50 p-5 sm:p-7 lg:border-t-0 lg:border-l" aria-live="polite">
+      <div
+        className="ledger-bg flex flex-col border-t bg-secondary/50 p-5 sm:p-7 lg:border-t-0 lg:border-l"
+        aria-live="polite"
+      >
         {result ? (
           <>
             <p className="text-sm font-medium text-muted-foreground">{result.headline.label}</p>

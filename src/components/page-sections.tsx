@@ -9,7 +9,13 @@ import {
 import { getCalculator } from '@/calculators/registry'
 import { getGenerator } from '@/generators/registry'
 
-export function Breadcrumbs({ section, current }: { section: 'tools' | 'calculators'; current: string }) {
+export function Breadcrumbs({
+  section,
+  current,
+}: {
+  section: 'tools' | 'calculators'
+  current: string
+}) {
   return (
     <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground print:hidden">
       <ol className="flex flex-wrap items-center gap-1.5">
@@ -20,7 +26,10 @@ export function Breadcrumbs({ section, current }: { section: 'tools' | 'calculat
         </li>
         <li aria-hidden>/</li>
         <li>
-          <Link to={section === 'tools' ? '/tools' : '/calculators'} className="hover:text-foreground">
+          <Link
+            to={section === 'tools' ? '/tools' : '/calculators'}
+            className="hover:text-foreground"
+          >
             {section === 'tools' ? 'Document tools' : 'Calculators'}
           </Link>
         </li>
@@ -99,7 +108,10 @@ export function RelatedTools({
               <span>
                 <span className="flex items-center gap-1 font-medium">
                   {g.name}
-                  <ArrowRight className="size-4 opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
+                  <ArrowRight
+                    className="size-4 opacity-0 transition-opacity group-hover:opacity-100"
+                    aria-hidden
+                  />
                 </span>
                 <span className="text-sm text-muted-foreground">{g.blurb}</span>
               </span>
@@ -117,7 +129,10 @@ export function RelatedTools({
               <span>
                 <span className="flex items-center gap-1 font-medium">
                   {c.name}
-                  <ArrowRight className="size-4 opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
+                  <ArrowRight
+                    className="size-4 opacity-0 transition-opacity group-hover:opacity-100"
+                    aria-hidden
+                  />
                 </span>
                 <span className="text-sm text-muted-foreground">{c.blurb}</span>
               </span>

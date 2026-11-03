@@ -26,9 +26,7 @@ describe('error pages', () => {
     await router.load()
     render(<RouterProvider router={router} />)
 
-    expect(
-      await screen.findByRole('heading', { name: 'Page not found' }),
-    ).toBeVisible()
+    expect(await screen.findByRole('heading', { name: 'Page not found' })).toBeVisible()
     await userEvent.setup().click(screen.getByRole('link', { name: 'Go home' }))
     expect(await screen.findByRole('heading', { name: 'Home' })).toBeVisible()
   })
@@ -54,12 +52,8 @@ describe('error pages', () => {
     await router.load()
     render(<RouterProvider router={router} />)
 
-    expect(
-      await screen.findByRole('heading', { name: 'This page couldn’t load' }),
-    ).toBeVisible()
-    expect(
-      screen.queryByText('Internal credentials must not appear'),
-    ).not.toBeInTheDocument()
+    expect(await screen.findByRole('heading', { name: 'This page couldn’t load' })).toBeVisible()
+    expect(screen.queryByText('Internal credentials must not appear')).not.toBeInTheDocument()
     await user.click(screen.getByRole('button', { name: 'Try again' }))
     expect(await screen.findByRole('heading', { name: 'Loaded' })).toBeVisible()
     expect(loader).toHaveBeenCalledTimes(2)
