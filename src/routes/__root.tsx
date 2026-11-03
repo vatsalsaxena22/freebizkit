@@ -4,13 +4,18 @@ import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { NotFoundPage } from '@/components/error-pages'
 
+import { AuthCallback } from '@/components/auth-callback'
+import { SiteHeader } from '@/components/site-header'
+import { SiteFooter } from '@/components/site-footer'
 import '../styles.css'
 
-const siteName = 'Netlify App'
-const siteDescription = 'A Netlify web app'
+const siteName = 'FreeBizKit — Your everyday business toolkit'
+const siteDescription =
+  'Free document generators and business calculators for freelancers and small businesses. Create, calculate and get back to business.'
 
 export const Route = createRootRoute({
   head: () => ({
+    links: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     meta: [
       {
         charSet: 'utf-8',
@@ -55,7 +60,12 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <TooltipProvider>{children}</TooltipProvider>
+        <TooltipProvider>
+          <AuthCallback />
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </TooltipProvider>
         <Toaster />
         <Scripts />
       </body>

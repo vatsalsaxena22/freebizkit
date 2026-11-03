@@ -12,13 +12,8 @@ describe('ValidatedForm', () => {
     await user.type(screen.getByLabelText('Email'), 'invalid')
     await user.click(screen.getByRole('button', { name: 'Submit' }))
 
-    expect(
-      await screen.findByText('Enter a valid email address.'),
-    ).toBeVisible()
-    expect(screen.getByLabelText('Email')).toHaveAttribute(
-      'aria-invalid',
-      'true',
-    )
+    expect(await screen.findByText('Enter a valid email address.')).toBeVisible()
+    expect(screen.getByLabelText('Email')).toHaveAttribute('aria-invalid', 'true')
     expect(screen.getByLabelText('Email')).toHaveAccessibleDescription(
       'Use the address where we can reach you. Enter a valid email address.',
     )
@@ -50,9 +45,7 @@ describe('ValidatedForm', () => {
     await user.type(screen.getByLabelText('Email'), 'test@example.com')
     await user.click(screen.getByRole('button', { name: 'Submit' }))
 
-    expect(await screen.findByRole('status')).toHaveTextContent(
-      'Your submission was saved.',
-    )
+    expect(await screen.findByRole('status')).toHaveTextContent('Your submission was saved.')
     expect(onSubmit).toHaveBeenCalledWith({ email: 'test@example.com' })
 
     await user.clear(screen.getByLabelText('Email'))
@@ -77,9 +70,7 @@ describe('ValidatedForm', () => {
     expect(screen.queryByRole('status')).not.toBeInTheDocument()
 
     await user.click(screen.getByRole('button', { name: 'Submit' }))
-    await waitFor(() =>
-      expect(screen.queryByRole('alert')).not.toBeInTheDocument(),
-    )
+    await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument())
     expect(await screen.findByRole('status')).toBeVisible()
     expect(onSubmit).toHaveBeenCalledTimes(2)
   })

@@ -10,8 +10,8 @@ export function SiteFooter() {
         <div className="space-y-4">
           <Logo />
           <p className="max-w-sm text-sm text-muted-foreground">
-            Practical, free business tools that run in your browser. No sign-up, no uploads —
-            your numbers and documents stay on your device.
+            Practical, free business tools that run in your browser. No sign-up needed. Create and
+            calculate in your browser, with optional cloud saving.
           </p>
         </div>
         <div>
@@ -48,9 +48,27 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t">
+        <nav
+          aria-label="Company and legal"
+          className="mx-auto flex max-w-content flex-wrap gap-5 px-4 pt-5 text-xs text-muted-foreground sm:px-6"
+        >
+          {(
+            [
+              { to: '/about', label: 'About' },
+              { to: '/pricing', label: 'Pricing' },
+              { to: '/contact', label: 'Contact & feedback' },
+              { to: '/privacy', label: 'Privacy' },
+              { to: '/terms', label: 'Terms' },
+            ] as const
+          ).map((item) => (
+            <Link key={item.to} to={item.to} className="hover:text-primary">
+              {item.label}
+            </Link>
+          ))}
+        </nav>
         <p className="mx-auto max-w-content px-4 py-5 text-xs text-muted-foreground sm:px-6">
-          © {new Date().getFullYear()} FreeBizKit. Results are estimates for planning — check
-          tax figures with your accountant.
+          © {new Date().getFullYear()} FreeBizKit. Results are estimates for planning — check tax
+          figures with your accountant.
         </p>
       </div>
     </footer>

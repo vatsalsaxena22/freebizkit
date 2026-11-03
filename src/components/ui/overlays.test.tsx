@@ -23,9 +23,7 @@ describe('overlays', () => {
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>Export</DropdownMenuSubTrigger>
             <DropdownMenuSubContent>
-              <DropdownMenuItem onSelect={selected}>
-                Export PDF
-              </DropdownMenuItem>
+              <DropdownMenuItem onSelect={selected}>Export PDF</DropdownMenuItem>
             </DropdownMenuSubContent>
           </DropdownMenuSub>
         </DropdownMenuContent>
@@ -33,9 +31,7 @@ describe('overlays', () => {
     )
     await user.click(screen.getByRole('menuitem', { name: 'Export' }))
     const action = await screen.findByRole('menuitem', { name: 'Export PDF' })
-    const parentMenu = screen
-      .getByRole('menuitem', { name: 'Export' })
-      .closest('[role="menu"]')
+    const parentMenu = screen.getByRole('menuitem', { name: 'Export' }).closest('[role="menu"]')
     expect(parentMenu).not.toContainElement(action)
     action.focus()
     await user.keyboard('{Enter}')
@@ -44,8 +40,6 @@ describe('overlays', () => {
 
   it('exposes the popover title as a level-two heading', () => {
     render(<PopoverTitle>Display settings</PopoverTitle>)
-    expect(
-      screen.getByRole('heading', { level: 2, name: 'Display settings' }),
-    ).toBeVisible()
+    expect(screen.getByRole('heading', { level: 2, name: 'Display settings' })).toBeVisible()
   })
 })

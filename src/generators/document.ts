@@ -1,4 +1,4 @@
-import { round2 } from '@/lib/format'
+import { round2 } from '../lib/format'
 
 export type DocumentKind = 'invoice' | 'quotation' | 'receipt'
 

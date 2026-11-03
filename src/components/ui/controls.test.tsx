@@ -4,12 +4,7 @@ import { describe, expect, it } from 'vitest'
 import { Checkbox } from './checkbox'
 import { RadioGroup, RadioGroupItem } from './radio-group'
 import { Switch } from './switch'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from './accordion'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './accordion'
 import { Label } from './label'
 
 describe('form controls', () => {
@@ -66,10 +61,7 @@ describe('form controls', () => {
 
     await user.tab()
     await user.keyboard('{Enter}')
-    expect(screen.getByRole('button', { name: 'Details' })).toHaveAttribute(
-      'aria-expanded',
-      'true',
-    )
+    expect(screen.getByRole('button', { name: 'Details' })).toHaveAttribute('aria-expanded', 'true')
     expect(screen.getByText('Additional information')).toBeVisible()
     await user.keyboard('{Enter}')
     expect(screen.getByRole('button', { name: 'Details' })).toHaveAttribute(

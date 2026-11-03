@@ -36,7 +36,7 @@ export const generators: GeneratorDef[] = [
       'Create a professional invoice online for free. Add your logo, line items, tax and discounts, preview it live, and download or print a PDF. No sign-up required.',
     h1: 'Free Invoice Generator',
     intro:
-      'Fill in your details on the left and watch the invoice build itself on the right. Totals, tax and discounts update as you type, and your draft is saved in this browser so you can come back to it.',
+      'Fill in your details on the left and watch the invoice build itself on the right. Totals, tax and discounts update as you type, and you can export a PDF or sign in to save an editable copy.',
     secondaryDateLabel: 'Due date',
     howTo: [
       'Add your business and client details, plus your logo if you have one.',
@@ -50,7 +50,7 @@ export const generators: GeneratorDef[] = [
       },
       {
         q: 'Is my invoice data uploaded anywhere?',
-        a: 'No. The invoice is built entirely in your browser and the draft is saved to this device only. Nothing is sent to a server.',
+        a: 'Editing and PDF export run entirely in your browser. Data is uploaded only when you choose to save a document, profile or logo to your optional account.',
       },
       {
         q: 'How do I save the invoice as a PDF?',

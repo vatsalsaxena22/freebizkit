@@ -2,7 +2,7 @@ export const SITE_NAME = 'FreeBizKit'
 export const SITE_TAGLINE = 'Free business tools that work in your browser'
 export const SITE_DESCRIPTION =
   'Free invoice, quotation and receipt generators plus GST, margin, markup, discount, freelance rate and ROI calculators. No sign-up, no server uploads — everything runs in your browser.'
-export const SITE_URL = 'https://freebizkit-blueprint.netlify.app'
+export const SITE_URL = 'https://freebizkit.netlify.app'
 
 /** Build the standard per-page <head> meta set (title, description, OG, canonical). */
 export function pageHead({

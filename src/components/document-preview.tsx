@@ -16,8 +16,16 @@ function readableDate(iso: string) {
 
 const titles = { invoice: 'Invoice', quotation: 'Quotation', receipt: 'Receipt' } as const
 const secondaryLabels = { invoice: 'Due date', quotation: 'Valid until', receipt: '' } as const
-const partyLabels = { invoice: 'Bill to', quotation: 'Prepared for', receipt: 'Received from' } as const
-const totalLabels = { invoice: 'Amount due', quotation: 'Quoted total', receipt: 'Amount paid' } as const
+const partyLabels = {
+  invoice: 'Bill to',
+  quotation: 'Prepared for',
+  receipt: 'Received from',
+} as const
+const totalLabels = {
+  invoice: 'Amount due',
+  quotation: 'Quoted total',
+  receipt: 'Amount paid',
+} as const
 
 export function DocumentPreview({ doc, logo }: { doc: DocumentData; logo: string | null }) {
   const t = computeTotals(doc)
@@ -37,7 +45,9 @@ export function DocumentPreview({ doc, logo }: { doc: DocumentData; logo: string
             {logo ? (
               <img src={logo} alt="" className="mb-2 max-h-14 max-w-[160px] object-contain" />
             ) : null}
-            <p className="text-[1.25em] font-semibold text-neutral-900">{doc.from.name || 'Your business'}</p>
+            <p className="text-[1.25em] font-semibold text-neutral-900">
+              {doc.from.name || 'Your business'}
+            </p>
             <p className="whitespace-pre-line text-neutral-500">{doc.from.address}</p>
             <p className="text-neutral-500">
               {[doc.from.email, doc.from.phone].filter(Boolean).join(' · ')}
@@ -77,18 +87,26 @@ export function DocumentPreview({ doc, logo }: { doc: DocumentData; logo: string
         </header>
 
         <section className="mt-[6%]">
-          <p className="text-[0.85em] font-semibold uppercase tracking-wider" style={{ color: 'var(--doc-accent)' }}>
+          <p
+            className="text-[0.85em] font-semibold uppercase tracking-wider"
+            style={{ color: 'var(--doc-accent)' }}
+          >
             {partyLabels[doc.kind]}
           </p>
           <p className="mt-1 font-semibold text-neutral-900">{doc.to.name || 'Client name'}</p>
           <p className="whitespace-pre-line text-neutral-500">{doc.to.address}</p>
-          <p className="text-neutral-500">{[doc.to.email, doc.to.phone].filter(Boolean).join(' · ')}</p>
+          <p className="text-neutral-500">
+            {[doc.to.email, doc.to.phone].filter(Boolean).join(' · ')}
+          </p>
           {doc.to.taxId && <p className="text-neutral-500">Tax ID: {doc.to.taxId}</p>}
         </section>
 
         <table className="mt-[5%] w-full border-collapse">
           <thead>
-            <tr className="border-b-2 text-left text-[0.85em] uppercase tracking-wider text-neutral-500" style={{ borderColor: 'var(--doc-accent)' }}>
+            <tr
+              className="border-b-2 text-left text-[0.85em] uppercase tracking-wider text-neutral-500"
+              style={{ borderColor: 'var(--doc-accent)' }}
+            >
               <th className="py-2 pr-2 font-semibold">Description</th>
               <th className="w-[12%] py-2 text-right font-semibold">Qty</th>
               <th className="w-[20%] py-2 text-right font-semibold">Rate</th>
@@ -106,9 +124,15 @@ export function DocumentPreview({ doc, logo }: { doc: DocumentData; logo: string
               items.map((item) => (
                 <tr key={item.id} className="border-b border-neutral-200 align-top">
                   <td className="py-2 pr-2 text-neutral-900">{item.description || '—'}</td>
-                  <td className="tabular py-2 text-right">{formatNumber(Number(item.quantity) || 0)}</td>
-                  <td className="tabular py-2 text-right">{formatMoney(Number(item.rate) || 0, c)}</td>
-                  <td className="tabular py-2 text-right text-neutral-900">{formatMoney(lineAmount(item), c)}</td>
+                  <td className="tabular py-2 text-right">
+                    {formatNumber(Number(item.quantity) || 0)}
+                  </td>
+                  <td className="tabular py-2 text-right">
+                    {formatMoney(Number(item.rate) || 0, c)}
+                  </td>
+                  <td className="tabular py-2 text-right text-neutral-900">
+                    {formatMoney(lineAmount(item), c)}
+                  </td>
                 </tr>
               ))
             )}
@@ -160,7 +184,9 @@ export function DocumentPreview({ doc, logo }: { doc: DocumentData; logo: string
         <div className="mt-auto space-y-3 pt-6">
           {doc.notes && (
             <div>
-              <p className="text-[0.85em] font-semibold uppercase tracking-wider text-neutral-500">Notes</p>
+              <p className="text-[0.85em] font-semibold uppercase tracking-wider text-neutral-500">
+                Notes
+              </p>
               <p className="whitespace-pre-line">{doc.notes}</p>
             </div>
           )}
