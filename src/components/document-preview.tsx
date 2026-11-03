@@ -200,7 +200,7 @@ export function DocumentPreview({ doc, logo }: { doc: DocumentData; logo: string
           )}
           {doc.showBranding && (
             <p className="border-t border-neutral-200 pt-2 text-center text-[0.8em] text-neutral-400">
-              Created with FreeBizKit · freebizkit-blueprint.netlify.app
+              Created with FreeBizKit · freebizkit.netlify.app
             </p>
           )}
         </div>
