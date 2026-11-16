@@ -56,7 +56,7 @@ function Home() {
                 </svg>
               </span>
             </h1>
-            <p className="mt-8 max-w-[29rem] text-base leading-7 text-muted-foreground">
+            <p className="mt-8 max-w-116 text-base leading-7 text-muted-foreground">
               Professional documents. Clearer numbers. All the little tools you need to run your
               business — together, and completely free.
             </p>
@@ -90,17 +90,14 @@ function Home() {
           <div className="hero-art" aria-label="Example professional invoice preview">
             <div className="orbit orbit-one" />
             <div className="orbit orbit-two" />
-            <span className="art-spark">
-              <Sparkles size={25} />
-            </span>
             <div className="invoice-paper">
               <div className="flex items-start justify-between border-b pb-6">
                 <div>
                   <div className="flex items-center gap-2 font-display text-base font-bold">
                     <span className="grid size-7 place-items-center rounded-md bg-primary text-primary-foreground">
-                      s.
+                      R.
                     </span>{' '}
-                    studio north
+                    Rockdot North
                   </div>
                   <p className="mt-2 text-[9px] text-muted-foreground">
                     Good work deserves a great invoice.
@@ -108,7 +105,7 @@ function Home() {
                 </div>
                 <div className="text-right">
                   <p className="font-display text-xl font-semibold text-primary">INVOICE</p>
-                  <p className="mt-1 text-[9px] text-muted-foreground">#INV-2026-042</p>
+                  <p className="mt-1 text-[9px] text-muted-foreground">#INV-2026-11-04</p>
                 </div>
               </div>
               <div className="my-6 flex justify-between text-[10px]">
@@ -116,14 +113,14 @@ function Home() {
                   <p className="mb-2 text-[8px] uppercase tracking-widest text-muted-foreground">
                     Billed to
                   </p>
-                  <strong>Olive & Oak Co.</strong>
-                  <p className="mt-1 text-muted-foreground">hello@oliveandoak.example</p>
+                  <strong>Oak Labs.</strong>
+                  <p className="mt-1 text-muted-foreground">blue@oaklabs.example</p>
                 </div>
                 <div className="text-right">
                   <p className="mb-2 text-[8px] uppercase tracking-widest text-muted-foreground">
                     Issued
                   </p>
-                  <p>November 03, 2026</p>
+                  <p>November 04, 2026</p>
                   <p className="mt-1 text-muted-foreground">Due in 14 days</p>
                 </div>
               </div>
@@ -159,15 +156,7 @@ function Home() {
                 <span>Made with FreeBizKit ↗</span>
               </div>
             </div>
-            <div className="floating-note note-one">
-              <span className="grid size-9 place-items-center rounded-full bg-primary/10 text-primary">
-                <CheckCheck size={19} />
-              </span>
-              <div>
-                <strong>Looking professional.</strong>
-                <p>Without the paperwork.</p>
-              </div>
-            </div>
+            
             <div className="floating-note note-two">
               <Download size={17} className="text-primary" />
               <span>Ready. Set. PDF.</span>

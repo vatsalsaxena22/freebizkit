@@ -8,7 +8,13 @@ const config = defineConfig({
   resolve: { tsconfigPaths: true },
   plugins: [
     tailwindcss(),
-    netlify(),
+    netlify({
+      dev: {
+        edgeFunctions: {
+          enabled: false,
+        },
+      },
+    }),
     tanstackStart({
       prerender: {
         enabled: true,

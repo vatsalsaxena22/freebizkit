@@ -162,11 +162,11 @@ export function DocumentPreview({ doc, logo }: { doc: DocumentData; logo: string
               </div>
             )}
             <div
-              className="mt-2 flex justify-between rounded-sm px-3 py-2 text-[1.15em] font-semibold text-white"
-              style={{ background: 'var(--doc-accent)' }}
+              className="border-t-2 mt-2 flex justify-between py-2 text-[1.25em] font-bold"
+              style={{ color: 'var(--doc-accent)' }}
             >
               <dt>{totalLabels[doc.kind]}</dt>
-              <dd className="tabular">{formatMoney(t.total, c)}</dd>
+              <dd className="">{formatMoney(t.total, c)}</dd>
             </div>
           </dl>
         </div>
